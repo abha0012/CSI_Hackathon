@@ -1,0 +1,66 @@
+
+<body style="background-color: white;">
+    
+</body>
+{% extends 'blog/base.html' %}
+    {% block content %}
+
+        <header class="site-header">
+          <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top shadow p-3 mb-5 bg-white rounded">
+            <div class="container">
+                <a class="navbar-brand mr-4 font-weight-bold" href="{% url 'blog-index' %}" style="color: #58ae9b;">Student Government</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link" href="{% url 'blog-home' %}" style="color: grey;">Home</a>
+                        <a class="nav-item nav-link" href="{% url 'blog-about' %}"style="color: grey;">About</a>
+                    </div>
+                    <!-- Navbar Right Side -->
+                    <div class="navbar-nav">
+                        {% if user.is_authenticated %}
+                            <a class="nav-item nav-link" href="{% url 'logout' %}" style="color: grey;">Logout</a>
+                            <a class="nav-item nav-link" href="{% url 'profile' %}" style="color: grey;">Profile</a>
+                            <a class="nav-item nav-link" href="{% url 'post-create' %}" style="color: grey;">New Post</a>
+                        {% else %}
+                            <a class="nav-item nav-link" href="{% url 'login' %}" style="color: grey;">Login</a>
+                            <a class="nav-item nav-link" href="{% url 'register' %}" style="color: grey;">Register</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+          </nav>
+        </header>
+
+
+        <div style="background-color: white;">
+              <div class="container px-lg-5">
+            <div class="row mx-lg-n5">
+                <div class="col-6">
+                    <div style="padding-top: 200px;">
+                        <div style="color: grey;">
+                            <h4>Lorem Ipsum</h4>
+                        </div>
+                        <div>
+                            <div style="color: grey;">
+                                <h1>Make Change for</h1>
+                            </div>
+                            <div style="color: green;">
+                                <h1>Better Tomorrow</h1>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 style="color: grey;">A government student portal provides platform for young minds to work nearly to government and suggest solution on given surrounding problems of all categories. </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                     <img class="" src="media/first.jpg" style="height: 700px; width: 700px; padding-top: 50px;">
+                </div>
+            </div>
+        </div>
+        </div>
+{% endblock %}
+
